@@ -9,10 +9,12 @@
         <scene sceneID="pAp-tP-ezr">
             <objects>
                 <tableViewController id="jje-pn-KXl" customClass="MasterTableViewController" customModule="AdrianNotes" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="83n-fi-559">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="83n-fi-559">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="150" id="msu-ty-Dwi" customClass="MasterTableViewCell" customModule="AdrianNotes" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -24,14 +26,14 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="8OL-3x-iHl"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="25"/>
+                                            <color key="textColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cl3-T0-xu0">
                                             <rect key="frame" x="1" y="37" width="598" height="105"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="25"/>
+                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -87,6 +89,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="8u6-GF-TVx">
                                 <cells>
@@ -95,18 +98,38 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GKv-Q8-B4v" id="BkT-0t-dX0">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hXl-26-ZcE">
-                                                    <rect key="frame" x="8" y="5" width="591" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="title" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="hXl-26-ZcE">
+                                                    <rect key="frame" x="5" y="8" width="583" height="30"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="24"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="hXl-26-ZcE" firstAttribute="top" secondItem="BkT-0t-dX0" secondAttribute="topMargin" id="2fw-2S-CDO"/>
+                                                <constraint firstItem="hXl-26-ZcE" firstAttribute="leading" secondItem="BkT-0t-dX0" secondAttribute="leadingMargin" constant="-10" id="3Nl-Yp-Fh4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hXl-26-ZcE" secondAttribute="trailing" constant="-3" id="6HA-og-nEi"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hXl-26-ZcE" secondAttribute="trailing" constant="-7" id="JKk-Hb-la0"/>
                                                 <constraint firstItem="hXl-26-ZcE" firstAttribute="top" secondItem="BkT-0t-dX0" secondAttribute="topMargin" constant="-3" id="NJt-uA-QSx"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hXl-26-ZcE" secondAttribute="bottom" constant="0.5" id="ODO-Nm-0va"/>
+                                                <constraint firstAttribute="trailing" secondItem="hXl-26-ZcE" secondAttribute="trailing" id="SwW-G0-8v8"/>
+                                                <constraint firstItem="hXl-26-ZcE" firstAttribute="leading" secondItem="BkT-0t-dX0" secondAttribute="leading" id="Tym-Nk-IIw"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hXl-26-ZcE" secondAttribute="bottom" constant="-2" id="Vb0-Yy-Bc2"/>
                                                 <constraint firstItem="hXl-26-ZcE" firstAttribute="leading" secondItem="BkT-0t-dX0" secondAttribute="leadingMargin" id="fap-kX-ILS"/>
+                                                <constraint firstItem="hXl-26-ZcE" firstAttribute="top" secondItem="BkT-0t-dX0" secondAttribute="topMargin" id="uEw-SC-mkj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hXl-26-ZcE" secondAttribute="bottom" constant="-2" id="xIP-hw-zXc"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="JKk-Hb-la0"/>
+                                                    <exclude reference="NJt-uA-QSx"/>
+                                                    <exclude reference="ODO-Nm-0va"/>
+                                                    <exclude reference="SwW-G0-8v8"/>
+                                                    <exclude reference="Tym-Nk-IIw"/>
+                                                    <exclude reference="fap-kX-ILS"/>
+                                                    <exclude reference="uEw-SC-mkj"/>
+                                                    <exclude reference="xIP-hw-zXc"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textCell" rowHeight="150" id="dRY-Na-n7m">
@@ -117,7 +140,8 @@
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Start Here..." translatesAutoresizingMaskIntoConstraints="NO" id="kKC-fa-LxO">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="21"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -138,7 +162,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Note" id="QQK-tC-62O">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gTs-o5-koq"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gTs-o5-koq">
+                            <connections>
+                                <action selector="saveAction:" destination="nfR-XF-haa" id="6p2-71-a6Q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="textField" destination="kKC-fa-LxO" id="J3T-IL-clQ"/>
