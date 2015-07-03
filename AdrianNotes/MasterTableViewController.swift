@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
-class MasterTableViewController: UITableViewController {
+class MasterTableViewController: UITableViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,50 @@ class MasterTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        if(PFUser.currentUser() == nil) {
+            var logInViewController = PFLogInViewController()
+            logInViewController.delegate = self
+            var signUpViewController = PFSignUpViewController()
+            signUpViewController.delegate = self
+            
+            logInViewController.signUpController = signUpViewController
+            
+            self.presentViewController(logInViewController, animated: true, completion: nil)
+            
+        }
+    }
+    
+    func logInViewController(logInController: PFLogInViewController, shouldBeginLogInWithUsername username: String, password: String) -> Bool {
+        
+        if(!username.isEmpty || !password.isEmpty) {
+            return true
+        } else {
+            return false
+        }
+    }
+    func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
+        println("Failed to log in.")
+    }
+    func signUpViewController(signUpController: PFSignUpViewController, shouldBeginSignUp info: [NSObject : AnyObject]) -> Bool {
+        
+        if let password = info ["password"] as? String {
+            
+            return count(password.utf16) >= 8
+        } else {
+            return false
+        }
+    }
+    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
+        println("Failed to sign up.")
+    }
+    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController) {
+        println("User dismissed sign up.")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
