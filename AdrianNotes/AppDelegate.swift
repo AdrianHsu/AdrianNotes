@@ -9,6 +9,7 @@
 import Parse
 import Bolts
 import UIKit
+import ParseCrashReporting
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,13 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [Optional] Power your app with Local Datastore. For more info, go to
         // https://parse.com/docs/ios_guide#localdatastore/iOS
         Parse.enableLocalDatastore()
-        
+        //ParseCrashReporting.enable()
         // Initialize Parse.
         Parse.setApplicationId("1IjfrSuhZznnC3iSuF83QZIeo9XVl9xSvePxPEoj",
             clientKey: "5CkhlBAVlehSNBXoUin4U8xUhEeYg6ep38YWdPfo")
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
         return true;
     }
 
