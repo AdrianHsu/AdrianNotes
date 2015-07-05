@@ -11,6 +11,10 @@ import Parse
 import ParseUI
 
 class MasterTableViewController: UITableViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
+    @IBAction func logout(sender: AnyObject) {
+        PFUser.logOut()
+        viewDidAppear(true)
+    }
 
     var noteObjects: NSMutableArray! = NSMutableArray()
     
@@ -22,18 +26,41 @@ class MasterTableViewController: UITableViewController, PFLogInViewControllerDel
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
     }
 
     override func viewDidAppear(animated: Bool) {
         if(PFUser.currentUser() == nil) {
-            var logInViewController = PFLogInViewController()
+            /*var logInViewController = PFLogInViewController()
             logInViewController.delegate = self
             var signUpViewController = PFSignUpViewController()
             signUpViewController.delegate = self
             
             logInViewController.signUpController = signUpViewController
             
-            self.presentViewController(logInViewController, animated: true, completion: nil)
+            self.presentViewController(logInViewController, animated: true, completion: nil)*/
+            
+            var permissions = ["public_profile"]
+            
+            PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) {
+                (user: PFUser?, error: NSError?) -> Void in
+                if let user = user {
+                    if user.isNew {
+                        println("User signed up and logged in through Facebook!")
+                        
+                    } else {
+                        println("User logged in through Facebook!")
+                        println(user)
+                    }
+                } else {
+                    println("Uh oh. The user cancelled the Facebook login.")
+                    println(user)
+                }
+            }
+            
+            
+            
             
         } else {
             self.fetchAllObjectsFromLocalDatastore()
@@ -57,9 +84,7 @@ class MasterTableViewController: UITableViewController, PFLogInViewControllerDel
             } else {
                 println(error?.userInfo)
             }
-            
         }
-        
         
     }
     func fetchAllObjects() {
